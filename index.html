@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf8">
+    <!-- Windy Weather Initializations -->
+    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+
+    <!-- Core Initilizations -->
+    <link rel="stylesheet" href="src/css/styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+    <!-- Leaflet Intitializations -->
+    <script src="node_modules/leaflet/leaflet.js"></script>
+
+    <!-- Leaflet Plugins -->
+    <link rel="stylesheet" href="node_modules/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="node_modules/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.Default.css" />
+    <script src="node_modules/Leaflet.markercluster-leaflet-0.7/dist/leaflet.markercluster-src.js"></script>
+
+    <!-- MomentJS Initilizations -->
+    <script src="node_modules/moment/moment.js"></script>
+    <script src="node_modules/moment-timezone/moment-timezone-with-data.js"></script>
+
+    <!-- Map Functions Initilizations -->
+    <script type="text/javascript" src="src/js/map.js"></script>
+
+</head>
+
+<body>
+    <div id="title-bar">
+        <div class="clocks left">
+            <div class="clock">
+                <p>Pacific</p>
+                <p id="pac" class="time">00:00:00 am</p>
+            </div>
+            <div class="clock">
+                <p>Mountain</p>
+                <p id="mount" class="time">00:00:00 am</p>
+            </div>
+        </div>
+        <div id="title-container">
+            <img id="title-logo" src="https://s7d2.scene7.com/is/image/dksfed/DSGLogo-FlatGreen?fmt=png-alpha&qlt=100" />
+        </div>
+        <div class="clocks">
+            <div class="clock">
+                <p>Central</p>
+                <p id="cen" class="time">00:00:00 am</p>
+            </div>
+            <div class="clock">
+                <p>Eastern</p>
+                <p id="est" class="time">00:00:00 am</p>
+            </div>
+        </div>
+    </div>
+    <div id="windy"></div>
+    <div id="toolbar">
+        <p id="search-error">Sorry, this search prompted an error. Verify this store exists.</p>
+        <form id="search-bar" onsubmit="return false">
+            <input type="text" placeholder="Search Store Number" class="input" id="search">
+            <button id="submit" type="button" style="display: none;"></button>
+        </form>
+    </div>
+</body>
+
+</html>

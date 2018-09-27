@@ -1,0 +1,144 @@
+/* Core Styles */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#title-bar {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+#title-logo {
+    margin: auto;
+    max-width: 100px;
+}
+
+.title {
+    color: #fff;
+}
+
+#title-container {
+    width: 50%;
+    display: flex;
+}
+
+#toolbar {
+    position: absolute;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+    bottom: 10%;
+}
+
+#search-bar {
+    width: 100%;
+}
+
+#search {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    padding: 1em;
+    margin: 1em;
+    opacity: .7;
+    border-radius: 100px;
+}
+
+@media (max-width: 740px) {
+    #toolbar {
+        width: 65%;
+    }
+}
+
+@media (max-width: 500px) {
+    .clocks {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+#search-error {
+    font-size: 15px;
+    color: red;
+    padding: 1em;
+    margin: 0 1em;
+    visibility: hidden;
+}
+
+.clocks {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    color: #fff;
+    font-size: 12px;
+}
+
+.clock {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+.clock p {
+    margin: 0;
+}
+
+.show {
+    visibility: visible !important;
+}
+
+.label p {
+    margin: 2px !important;
+}
+
+/* Windy Map Styles */
+#windy {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#mapid {
+    height: 180px;
+}
+
+#mobile-ovr-select {
+    top: 50px !important;
+}
+
+#embed-zoom {
+    top: 85px !important;
+}
+
+#windy #map_container .leaflet-control-container {
+
+    display: block !important;
+
+}
+
+#windy .leaflet-top .leaflet-control {
+    margin-top: 50px !important;
+}
+
+#windy input[type="checkbox"] {
+
+    position: relative !important;
+    clip: rect(0, 0, 0, 0);
+
+}
+#windy .leaflet-control-layers-selector {
+
+    margin-top: 2px;
+    position: relative;
+    top: 1px;
+
+}
