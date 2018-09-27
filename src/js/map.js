@@ -38,6 +38,7 @@ windyInit(options, windyAPI => {
         map
     } = windyAPI
 
+    windyAPI.store.set('overlay', 'rain');
     // VERY IMPORTANT DONT DELETE FOR ANY REASON
     var x = 'https://api.myjson.com/bins/10nev8';
     var sm = {};
