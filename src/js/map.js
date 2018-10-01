@@ -14,8 +14,8 @@ window.setInterval(function () {
 
     var est = moment.tz(moment(), zone[0]).format(fr);
     var cen = moment.tz(moment(), zone[1]).format(fr);
-    var mount = moment.tz(moment(), zone[3]).format(fr);
-    var pac = moment.tz(moment(), zone[4]).format(fr);
+    var mount = moment.tz(moment(), zone[2]).format(fr);
+    var pac = moment.tz(moment(), zone[3]).format(fr);
 
     $("#est").text(est)
     $("#pac").text(pac)
