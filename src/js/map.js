@@ -99,6 +99,8 @@ windyInit(options, windyAPI => {
 
             var m = new L.marker(L.latLng(c.Lat, c.Long), {
                 id: b,
+                name: d,
+                phone: g,
                 icon: ic
             }).bindPopup(j, op);
 
@@ -110,6 +112,21 @@ windyInit(options, windyAPI => {
     map.addLayer(ms, {
         chunkedLoading: true,
     });
+
+    ms.on('clusterclick', function (e) {
+        $('#data-panel').addClass('show');
+        let a = e.layer.getAllChildMarkers();
+        $.each(a, function() {
+            console.log(this);
+            $('#show-stores').append(`<div class="store-cluster-label">${this.options.name}<p>Store #: ${this.options.id}</p>${this.options.phone}`);
+        })
+    })
+
+    $('#close-data-panel').click(function (e) {
+        $('#data-panel').removeClass('show');
+        $('#show-stores').empty();
+    })
+
 
     $('#search-bar').submit(function () {
         a = $(this).find('#search').val();
