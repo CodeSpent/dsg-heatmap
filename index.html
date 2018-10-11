@@ -8,9 +8,10 @@
     <!-- Core Initilizations -->
     <link rel="stylesheet" href="src/css/styles.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+    <script type="text/javascript" src="src/js/functions.js"></script>
 
     <!-- Leaflet Intitializations -->
-    <script src="node_modules/leaflet/leaflet.js"></script>
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
 
     <!-- Leaflet Plugins -->
     <link rel="stylesheet" href="node_modules/Leaflet.markercluster-leaflet-0.7/dist/MarkerCluster.css" />
@@ -52,6 +53,10 @@
             </div>
         </div>
     </div>
+    <div id="menu-bar">
+        <a id="menu-button" class="hamburger" href="#"></a>
+            <div class="hamburger__inner"></div>
+    </div>
     <div id="windy"></div>
     <div id="toolbar">
         <p id="search-error">Sorry, this search prompted an error. Verify this store exists.</p>
@@ -60,10 +65,25 @@
             <button id="submit" type="button" style="display: none;"></button>
         </form>
     </div>
+    <div id="list-panel" class="panel panel-show">
+        <div id="store-list_header" class="panel-header">
+            <select id="store-list_filter">
+                <option value="default">Filter By</option>
+                <option value="state">State</option>
+                <option value="type">Store Type</option>
+                <option value="new">*New Stores*</option>
+            </select>
+        </div>
+        <div id="store-list_content" class="panel-content"></div>
+    </div>
     <div id="data-panel" style="visibility: hidden;">
         <div id="console">
             <h3 id="data-panel-header">All Stores in Cluster</h3>
-            <div id="show-stores"></div>
+            <div id="show-stores">
+                <ul id="stores-list">
+
+                </ul>
+            </div>
             <button id="close-data-panel">Close Panel</button>
         </div>
     </div>

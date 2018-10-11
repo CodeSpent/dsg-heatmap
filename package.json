@@ -1,0 +1,28 @@
+{
+  "name": "dsg-heatmap",
+  "version": "1.0.0",
+  "description": "'",
+  "main": "index.js",
+  "dependencies": {
+    "Leaflet.markercluster-leaflet-0.7": "^0.5.0",
+    "leaflet": "^0.7.7",
+    "leaflet-search": "^2.9.6",
+    "leaflet.awesome-markers": "^2.0.4",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeSpent/dsg-heatmap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeSpent/dsg-heatmap/issues"
+  },
+  "homepage": "https://github.com/CodeSpent/dsg-heatmap#readme"
+}
