@@ -227,7 +227,9 @@ $.getJSON("https://api.myjson.com/bins/i1k4o", function (storeData) {
             $.each(storeData, function () {
                 let x = this;
                 let a = this.StoreNum
+                let e = this.City
                 let b = this.State;
+                let t = this.StateAbr;
                 let c = [this.Lat, this.Long];
                 
                 $('<div/>', {
@@ -250,12 +252,24 @@ $.getJSON("https://api.myjson.com/bins/i1k4o", function (storeData) {
                     class: 'store-object-address'
                 }).appendTo('#' + a + '_store-object');
 
-                $('<button class="store-object-link">View on Map</button>', {
-                    id: a + '_store-object-link'
+                $('<button/>', {
+                    id: a + '_store-object-link',
+                    class: 'button',
+                    text: 'View on Map'
                 }).appendTo('#' + a + '_store-object').click(function() {
                     map.setView(c, 20); 
-                    m.openPopup(c);        
                 });
+
+                $('<button/>', {
+                    id: a + '_store-object-floorPlan',
+                    class: 'button',
+                    text: 'Floorplans'
+                }).appendTo('#' + a + '_store-object').click(function() {
+                    let f = 'data/storeMaps/';
+                    let fP = f +a + ' - ' + e +', '+t+'.pdf'; 
+                    window.open(fP,'_blank');  
+                });
+
 
             });
         });
