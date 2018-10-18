@@ -1,103 +1,109 @@
-
-// DOM functions
 $(document).ready(function () {
-    // Use num decimal (.) to focus on search element
+$('#data-panel').hide();
+    let states = [
+        "Alabama",
+        "Arkansas",
+        "Arizona",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "Florida",
+        "Georgia",
+        "Iowa",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Massachusetts",
+        "Maryland",
+        "Maine",
+        "Michigan",
+        "Minnesota",
+        "Missouri",
+        "Mississippi",
+        "North Carolina",
+        "North Dakota",
+        "Nebraska",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "Nevada",
+        "New York",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Virginia",
+        "Vermont",
+        "Washington",
+        "Wisconsin",
+        "West Virginia",
+        "Wyoming"
+    ]
+
     $(document).keypress(function (e) {
         if (e.which == 110)
-            console.log("Num Decimal(.) captured.")
         $("#search").focus();
     });
 
-    // Store list panel
+    $.each(states, function () {
+        $('<div/>', {
+            id: this + '_container',
+            class: 'state-container'
+        }).appendTo('#store-list_content');
+    });
+
     $("#menu-button").click(function () {
         console.log('Menu Clicked');
         $(this).toggleClass("hamburger--open");
+        $('#list-panel').show();
+        $('<button/>', {
+            id: 'close-list-panel',
+            class: 'button',
+            value: 'Close',
+            text: 'Close'
+        }).appendTo('#store-list_header').click(function() {
+            $('#list-panel').hide();
+            $('#close-list-panel').remove();
+        });
     });
 
-    let storeListFilter = $('#store-list_filter');
+    $('<select/>', {
+        id: 'store-filter-state',
+        class: 'dropdown'
+    }).appendTo('#store-list_header');
 
-    storeListFilter.change(function() {
-        let value = $(this).val();
-        console.log(value);
+    $.each(states, function () {
 
-        if(value == 'state') {
-            console.log('Selected State');
-            $('<select/>', {
-                id: 'store-filter-state',
-                class: 'filterBy',
-                title: 'test'
-            }).appendTo('#store-list_header');
+        $('<h1>' + this + '</h1>', {
+            id: this + '_heading',
+            value: this,
+            text: this
+        }).appendTo('#' + this + '_container')
 
-            // Array of US states to loop through
-            let states = ["Alaska",
-                  "Alabama",
-                  "Arkansas",
-                  "American Samoa",
-                  "Arizona",
-                  "California",
-                  "Colorado",
-                  "Connecticut",
-                  "District of Columbia",
-                  "Delaware",
-                  "Florida",
-                  "Georgia",
-                  "Guam",
-                  "Hawaii",
-                  "Iowa",
-                  "Idaho",
-                  "Illinois",
-                  "Indiana",
-                  "Kansas",
-                  "Kentucky",
-                  "Louisiana",
-                  "Massachusetts",
-                  "Maryland",
-                  "Maine",
-                  "Michigan",
-                  "Minnesota",
-                  "Missouri",
-                  "Mississippi",
-                  "Montana",
-                  "North Carolina",
-                  "North Dakota",
-                  "Nebraska",
-                  "New Hampshire",
-                  "New Jersey",
-                  "New Mexico",
-                  "Nevada",
-                  "New York",
-                  "Ohio",
-                  "Oklahoma",
-                  "Oregon",
-                  "Pennsylvania",
-                  "Puerto Rico",
-                  "Rhode Island",
-                  "South Carolina",
-                  "South Dakota",
-                  "Tennessee",
-                  "Texas",
-                  "Utah",
-                  "Virginia",
-                  "Virgin Islands",
-                  "Vermont",
-                  "Washington",
-                  "Wisconsin",
-                  "West Virginia",
-                  "Wyoming"]
-
-                  $.each(states, function() {
-                    $('<div/>', {
-                        id: this
-                    }).appendTo('#store-list_content');
-
-                    $('<option>'+this+'</option>', {
-                        value: this
-                    }).appendTo('#store-filter-state');
-                  });
-        }
+        $('<option>' + this + '</option>', {
+            value: this + '_option'
+        }).appendTo('#store-filter-state');
     });
 
-    
-
-    
+    $('#store-filter-state').on('change', function() {
+        let a = this.value;
+        console.log(a);
+    $('.state-container').hide();
+    $('#'+a+'_container').show();
+    });
 });
+
+// Hacky preloader since we can't leverage loading of Windy
+setTimeout(function() {
+    $('#preloader').hide();
+}, 5000);
