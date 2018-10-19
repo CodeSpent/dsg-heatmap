@@ -7,6 +7,11 @@
     width: 100%;
     z-index: 9999999999;
     background-color: rgb(0, 97, 80);
+    color: #d2cece;
+}
+
+#loader-wrapper {
+    margin: auto;
 }
 
 
@@ -272,6 +277,10 @@ body {
 }
 
 /* Marker and Cluster Styles */
+.leaflet-marker-icon {
+    width: 60px !important;
+    height: auto !important;
+}
 .marker-cluster {
     background: #f89b34 !important;
     border-radius: 50%;
