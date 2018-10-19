@@ -14,7 +14,6 @@
     margin: auto;
 }
 
-
 .sk-folding-cube {
     margin: 20px auto;
     background-color: rgb(248, 155, 52);
@@ -277,10 +276,6 @@ body {
 }
 
 /* Marker and Cluster Styles */
-.leaflet-marker-icon {
-    width: 60px !important;
-    height: auto !important;
-}
 .marker-cluster {
     background: #f89b34 !important;
     border-radius: 50%;
