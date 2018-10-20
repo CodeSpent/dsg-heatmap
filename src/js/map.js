@@ -211,7 +211,7 @@ $.getJSON("https://api.myjson.com/bins/i1k4o", function (storeData) {
                     let c = m.getLatLng();
                     let point = new L.LatLng(c.lat, c.lng);
                    
-                    map.setView(point, 7, {
+                    map.setView(point, 9, {
                         animation: true
                     })
                     map.on('popupclose', function () {
